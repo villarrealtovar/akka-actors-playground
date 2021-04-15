@@ -8,3 +8,5 @@ Communicating Actors: https://www.youtube.com/watch?v=s_EtPq2ZYOg
 The Ask Pattern: https://www.youtube.com/watch?v=pW_q315FChc
 
 Actor Hierarchy: https://www.youtube.com/watch?v=eEuAM7SJcAE
+
+Actor Supervision: https://www.youtube.com/watch?v=zMZK1IZArKY
