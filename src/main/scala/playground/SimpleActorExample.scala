@@ -16,6 +16,7 @@ object SimpleActorExample extends App{
   val system = ActorSystem("SimpleActorExample")
   val actor = system.actorOf(Props[SimpleActor], "SimpleActor")
 
+
   println("Before messages")
   actor ! "Hi there"
   println("After String")
@@ -24,4 +25,5 @@ object SimpleActorExample extends App{
   actor ! 'a'
   println("After char")
 
+  system.terminate()
 }
