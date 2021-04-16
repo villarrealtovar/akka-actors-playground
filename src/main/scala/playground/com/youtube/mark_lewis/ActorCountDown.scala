@@ -1,10 +1,11 @@
-package playground
+package playground.com.youtube.mark_lewis
 
 import akka.actor.{Actor, ActorRef, ActorSystem, Props}
 
 object ActorCountDown extends App {
 
   case class StartCounting(n: Int, other: ActorRef)
+
   case class CountDown(n: Int)
 
   class CountDownActor extends Actor {
@@ -15,10 +16,10 @@ object ActorCountDown extends App {
       case CountDown(n) =>
         if (n > 0) {
           println(s"sender: ${sender} self: ${self} n: $n")
-          sender ! CountDown(n-1)
+          sender ! CountDown(n - 1)
         } else {
-        context.system.terminate()
-      }
+          context.system.terminate()
+        }
     }
   }
 

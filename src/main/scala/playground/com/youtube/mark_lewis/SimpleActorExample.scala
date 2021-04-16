@@ -1,8 +1,8 @@
-package playground
+package playground.com.youtube.mark_lewis
 
 import akka.actor.{Actor, ActorSystem, Props}
 
-object SimpleActorExample extends App{
+object SimpleActorExample extends App {
 
   class SimpleActor extends Actor {
     def receive: Receive = {

@@ -1,13 +1,18 @@
-package playground
+package playground.com.youtube.mark_lewis
 
 import akka.actor.SupervisorStrategy.{Restart, Resume}
 import akka.actor.{Actor, ActorRef, ActorSystem, OneForOneStrategy, Props}
 
 object SupervisorExample extends App {
+
   case object CreateChild
+
   case object SignalChildren
+
   case object PrintSignal
+
   case class DivideNumbers(n: Int, d: Int)
+
   case object BadStuff
 
   class ParentActor extends Actor {
@@ -23,8 +28,8 @@ object SupervisorExample extends App {
     }
 
     override val supervisorStrategy = OneForOneStrategy(loggingEnabled = false) {
-      case ae:ArithmeticException => Resume
-      case _:Exception => Restart
+      case ae: ArithmeticException => Resume
+      case _: Exception => Restart
     }
 
   }
@@ -32,7 +37,7 @@ object SupervisorExample extends App {
   class ChildActor extends Actor {
     def receive: Receive = {
       case PrintSignal => println(self)
-      case DivideNumbers(n, d) => println(n/d)
+      case DivideNumbers(n, d) => println(n / d)
       case BadStuff =>
         println("Stuff happened")
         throw new RuntimeException("Stuff happened")
@@ -47,7 +52,7 @@ object SupervisorExample extends App {
   actor ! CreateChild
 
   val child0 = system.actorSelection("/user/Parent1/child0")
-  child0 ! DivideNumbers(4,0)
-  child0 ! DivideNumbers(4,2)
+  child0 ! DivideNumbers(4, 0)
+  child0 ! DivideNumbers(4, 2)
   child0 ! BadStuff
 }

@@ -1,11 +1,13 @@
-package playground
+package playground.com.youtube.mark_lewis
 
 import akka.actor.{Actor, ActorRef, ActorSystem, Props}
 
 object HierarchyExample extends App {
 
   case object CreateChild
+
   case object SignalChildren
+
   case object PrintSignal
 
   class ParentActor extends Actor {
